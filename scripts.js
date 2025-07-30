@@ -1,32 +1,27 @@
-let height=document.getElementById('height');
-let weight=document.getElementById('weight')
-let button=document.getElementById('button');
+let height = document.getElementById("height");
+let weight = document.getElementById("weight");
+let button = document.getElementById("button");
 
-let score=document.getElementById('score');
-let result=document.querySelector('.result');
+let score = document.getElementById("score");
+let result = document.querySelector(".result");
 
-button.addEventListener('click',function() {
-let newHeight=parseFloat(height.value);
-let newHeight=parseFloat(weight.value);
-newHeight=newHeight/100;
-let sqrHeight=newHeight * newHeight;
+button.addEventListener("click", function () {
+  let newHeight = parseFloat(height.value);
+  let newWeight = parseFloat(weight.value);
 
-let bmi=newWeight / sqrHeight;
-score.textContent =bmi.toFixes(2);
-result.computedStyleMap.display='block';
-});
+  newHeight = newHeight / 100;
+  let sqrHeight = newHeight * newHeight;
+  let bmi = newWeight / sqrHeight;
 
-if(score.textConteny <18.6){
-score.style.background="#ffeaa7";
-} else if(score.textConteny<24.9) {
-    score.style.background="#ffeaa7";
-}else{
-score.style.background="#d63031"
-}
+  score.textContent = bmi.toFixed(2);
+  result.style.display = "block";
 
-
-
-let form=documentById('form');
-form.addEventListener('submit',function(e){
-    e.preventDefault();
+  let bmiValue = parseFloat(score.textContent);
+  if (bmiValue < 18.6) {
+    score.style.background = "#ffeaa7";
+  } else if (bmiValue < 24.9) {
+    score.style.background = "#55efc4";
+  } else {
+    score.style.background = "#d63031";
+  }
 });
